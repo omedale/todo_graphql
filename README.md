@@ -11,6 +11,18 @@ cd into the app root folder
 $ bundle install
 ```
 
+## Create Database
+
+```
+rails db:create
+```
+
+## Migrate Tables
+
+```
+rails db:Migrate
+```
+
 ## start app
 ```
 $ rails s
