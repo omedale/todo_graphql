@@ -1,8 +1,8 @@
 Types::TodoType = GraphQL::ObjectType.define do
-  name 'User'
+  name 'Todo'
 
   field :id, !types.ID
   field :name, !types.String
   field :desc, !types.String
-  field :user, -> { Types::UserType }
+  field :owner, -> { Types::UserType }, property: :user
 end
