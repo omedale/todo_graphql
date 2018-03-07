@@ -12,6 +12,9 @@ $ bundle install
 ```
 
 ## Create Database
+* Check config/database.yml
+* In line 20 (insert your postgres username)
+* In line 21 (insert your postgres password)
 
 ```
 rails db:create
@@ -28,7 +31,7 @@ rails db:Migrate
 $ rails s
 ```
 
-###GraphQl will be launched on the the URL bellow
+### GraphQl will be launched on the the URL bellow
 ```
 http://localhost:3000/graphiql
 ```
