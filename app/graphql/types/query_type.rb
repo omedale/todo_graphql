@@ -34,4 +34,22 @@ Types::QueryType = GraphQL::ObjectType.define do
     }
   end
 
+  field :todos, types[Types::TodoType] do
+    description 'Retrieve a list of all todo list'
+    
+    resolve ->(obj, args, ctx) {
+      Todo.all
+    }
+  end
+
+  field :todo, Types::TodoType do
+    description 'Retrieve a todo by id'
+    
+    argument :id, !types.ID, 'The ID of the todo to retrieve'
+    resolve -> (obj, args, ctx) {
+      Todo.find(args[:id])
+    }
+  end
+  
+
 end
