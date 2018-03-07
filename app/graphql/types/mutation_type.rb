@@ -37,6 +37,7 @@ Types::MutationType = GraphQL::ObjectType.define do
   field :createUser, function: Resolvers::CreateUser.new
   field :signinUser, function: Resolvers::SignInUser.new
   field :createTodo, function: Resolvers::CreateTodo.new
+  field :createTodoList, function: Resolvers::CreateTodoList.new
 
 
 
