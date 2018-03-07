@@ -18,21 +18,26 @@ Types::MutationType = GraphQL::ObjectType.define do
   end
 
   #create user
-  field :createUser, Types::UserType do
-    description 'Allows you to create a new user'
+  # field :createUser, Types::UserType do
+  #   description 'Allows you to create a new user'
 
-    argument :name, !types.String
-    argument :email, !types.String
-    argument :password, !types.String
+  #   argument :name, !types.String
+  #   argument :email, !types.String
+  #   argument :password, !types.String
 
-    resolve ->(obj, args, ctx) {
-      user = User.new(args.to_h)
+  #   resolve ->(obj, args, ctx) {
+  #     user = User.new(args.to_h)
 
-      user.save
+  #     user.save
 
-      user
-    }
-  end
+  #     user
+  #   }
+  # end
+
+  field :createUser, function: Resolvers::CreateUser.new
+  field :signinUser, function: Resolvers::SignInUser.new
+
+
 
   # field :deletePost, Types::PostType do
   #   description 'Delete Post'
