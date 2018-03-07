@@ -1,10 +1,10 @@
 ## Installation
 ```
-$ Clone repository
+$ git clone https://github.com/omedale/todo_graphql.git
 ```
 
 ```
-cd into the app root folder
+cd todo_graphql
 ```
 
 ```
