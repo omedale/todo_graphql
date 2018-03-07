@@ -1,24 +1,138 @@
-# README
+## Installation
+```
+$ Clone repository
+```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+cd into the app root folder
+```
 
-Things you may want to cover:
+```
+$ bundle install
+```
 
-* Ruby version
+## start app
+```
+$ rails s
+```
 
-* System dependencies
+###GraphQl will be launched on the the URL bellow
+```
+http://localhost:3000/graphiql
+```
 
-* Configuration
+## create User
 
-* Database creation
+```
+mutation {
+  createUser (
+    name: "medale",
+    authProvider: {
+      email: {
+      email: "omedale@yahoo.com",
+      password: "12345"
+    }
+    }
+  ) {
+    id
+    name
+    email
+  }
 
-* Database initialization
+}
+```
 
-* How to run the test suite
+## Sign In User
+```
+mutation {
+  signinUser (
+   email: {
+    email:  "omedale@yahoo.com",
+    password: "12345"
+  }
+  
+  ) {
+    token
+  }
+}
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Create Todo
+```
+mutation {
+  createTodo(
+    desc: "My flight List"
+    name: "Flight list"
+  ) {
+    id
+    desc
+    name
+  }
+}
+```
 
-* Deployment instructions
+## create flight todoList
+```
+mutation {
+  createTodoList(
+    desc: "were u dere",
+    name: "I was not",
+    todoId: 1
+  ) {
+    id
+  }
+}
+```
 
-* ...
+## Get all todo
+```
+query {
+  todos {
+    id
+    owner
+    name
+  }
+}
+```
+
+## Get todo
+```
+query {
+  todo(id: 1) {
+    id
+    owner {
+      id
+      name
+    }
+    name
+    desc
+  }
+}
+```
+## Get all todo list
+```
+query {
+  todolists {
+    id
+    name
+    todo {
+      id
+      name
+    }
+  }
+}
+```
+
+## get todolists
+```
+query {
+  todolist(id: 3) {
+    id
+    name
+    todo {
+      id
+      name
+    }
+  }
+}
+```
