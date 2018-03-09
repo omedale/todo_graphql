@@ -78,6 +78,7 @@ mutation {
   createTodo(
     desc: "My flight List"
     name: "Flight list"
+    user_id: $user_id
   ) {
     id
     desc
@@ -102,11 +103,12 @@ mutation {
 ## Get all todo
 ```
 query {
-  todos {
-    id
-    owner
-    name
-  }
+  userTodos(user_id: $user_id) {
+          id
+          name
+          desc
+        }
+    }
 }
 ```
 
